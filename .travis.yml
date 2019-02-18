@@ -19,8 +19,6 @@ before_install:
 
 install:
 - echo "install"
-- gem install bundler --no-rdoc --no-ri
-- bundle install
 
 before_script:
 - make init
