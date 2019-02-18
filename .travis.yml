@@ -1,23 +1,37 @@
 language: ruby
 sudo: required
 dist: trusty
+
 services:
 - docker
+
 rvm:
-- 2.4.2
+- 2.4.4
+
+env:
+  global:
+  - AWS_REGION='us-east-1'
+  - TF_VAR_region=${AWS_REGION}
+  - TF_WARN_OUTPUT_ERRORS=1
+
 before_install:
+- echo "before_install"
+
 install:
+- echo "install"
+- gem install bundler --no-rdoc --no-ri
+- bundle install
+
 before_script:
-script:
+- make init
 - make help
-deploy:
-  provider: script
-  script: ci/deploy.sh
-  on:
-    branch: master
+
+script:
+- echo 'script'
+
 notifications:
   email:
     recipients:
-    - brandon@atscale.run
+    - victorcuascut@gmail.com
     on_success: change
     on_failure: change
