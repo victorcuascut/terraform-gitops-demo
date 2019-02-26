@@ -5,5 +5,9 @@ environment: development
 development-account:
     us-east-1:
         - global/config-baseline
+        
         - platform/platform-vpc
         - platform/platform-route53-private-zone
+
+        - demo/demo-vpc
+        - demo/demo-fargate-example
