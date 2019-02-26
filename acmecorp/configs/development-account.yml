@@ -1,0 +1,8 @@
+---
+business: acme-corp
+environment: development
+
+development-account:
+    us-east-1:
+        - platform/platform-vpc
+

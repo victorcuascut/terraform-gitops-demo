@@ -1,35 +1,20 @@
-language: ruby
-sudo: required
-dist: trusty
-
-services:
-- docker
-
-rvm:
-- 2.4.4
-
+addons:
+  apt:
+    packages:
+    - git
+    - make
+    - curl
+install:
+- make init
+script:
+- make manifest/plan -e BUSINESS=acmecorp -e ACCOUNT=development-account -e PROJECT=all -e REGION=us-east-1
 env:
   global:
-  - AWS_REGION='us-east-1'
-  - TF_VAR_region=${AWS_REGION}
-  - TF_WARN_OUTPUT_ERRORS=1
-
-before_install:
-- echo "before_install"
-
-install:
-- echo "install"
-
-before_script:
-- make init
-- make help
-
-script:
-- echo 'script'
-
+  - secure: MjnumcBAVStYNci5NEmaH6PwwRIFET6fubjr730o9oB8HOxp2qwIwJAsGxGX83QSSFpXAjm6mhNXAK7PdnsoS57Z9pJ+8J3LTtE0uOE54E7M+1Sna7hbE8woyztUGO11bB6NDgsyN27/LNOOcIsUA6IjH8tNgEorKPPCCagUjWAp2gC8nxW8BTAqJEHjPRJS5vFWCpDHgHIL7srZSUEk20vpp0SHORQxkA/EdMCCPYqTzuWYmtvt6XQbbmRTKXwunjEAKufTFM8+D0Ds+SkzBid9CCA3rqTqLTz6zCFPTEKY/N+Zgdse/qyLEg/4YOj2TQ5qMn6VVCB/RdTKj90sRjB/KPIVH6mPqM9uuBM/wZzrRnEVFo8oK1KHaGr4Hl2F/qGPRsCVSguIKQr2h/HISxbw3sKDdl6C5xUV2LQl3mjc+RKtVoPyJZMvqgUtrE092knaqhYqSDPmz/oz16YTcwEBhA674FKP4aJt0BT5Lq2CHiSdiDUKg2OEw9hOMzeRR196z+u+cL6a6z4/o6ck+DF3UF2Br63f4hGINqmROF+k6CBIuBXyieKT0RgXLxLEMRKnOW4C2f0fHVnAE0lV1I/dfKbtziyHJr5yPhRknPrSGdxwdhbH75ixniBcDpy8gmV92zbXV2uX+IssuAfqzKtQbYNW2VF1Ll50CV+O+rU=
+  - secure: VhrR173q5yMa8Wpjgh46Pl6BPzU9ARhLJJpuzkc8C8/k6wfsOwMB5IU2Eh/g38dlZH4PN0lj6ZLFlQPiaFoUdbrakAA/8YUHxFRrtkb4LCR0uL93YZnu1OeOy0S/XWSvvicgVducrAhfXH4DXAs21ZfNMCTILXCaxMJxnkhV2oUgZ8tl7WuzsKvyqvQq1LV62O3nIjo0pAEN/gEQuSqC4txkeMmfY8gyHq1Wk9PKe0mVP3V6MpmZL9j+gmj+bkby4iOYHnk1AiNADls5q1GqGtjeqq99E5RjxiPYuhxi90zlYDhizf+DEAPbXGNkUrCmXcHfC6eOleqjCJJCY9FJ/cxbfC5I1haQWpzcOjnvD30nFfs8tJPBAcOKzzNFWBV3qGGX0bfCRXfRMTxLKgYcCtlGpB4hKD/IFButHaPjjWVC1pE17EuYf/nF8O9OUeZkqcJ3x3D4/GYHK5yye/MPisRSM5We/S1/W6PZrhKW6m08wqqgvxCJo/e59vnZ7STGJ2B7woaBPkth/TzjmLYHHVUk61ZLDR3VX4pBDwxpFSjslFxJ2csOyEDriGX6sPqjdu+Tja/ksMhgoZ4Q3VBC9G+cCzdrvZK9YMdf/Q58xtYLscHPe9xyZvBUH+l+7AojAWTkcYLsGLtNrzJuZ9Qlnoufj233rz/j2zqZn7mvY1w=
+  - secure: r2TanjrtyvYizs6VSMYstVJJN1xI6gAC3/5j4c4EkKn+qnn0O7cBiOsJG/dKqsHLCcQPtpULdfgh53HoAt7IrprNijQEllaLNs5oSfKqXIOYNpd+W3gN9ZSefKded/6KAeLMlihuYiUwPe8Y0DngSWPK3F6mjONbIYgyD8A+W+WBZ8GG+BlifEbIgbtSgaXKsv2LkqAWvlLX0tDMFSUIhJThGl4aLQ/2yJXrOZvcDqgHyOdeNR9IIQS7fgynnC47c68PfpYvz5TmYhD0onEd4IqVEvXeJkR9eqEt7bCavSk89kljXdMayWzBzNhqfumEeH3KUq7wyH2cGYvX1SsipbzPohkcLAK3CSJG8eqO3ZmP54SRx4fCFvbb0/iGNuBx7UU0qrcMvl9QdwZ7ktnwNbFXYznajusMyz2dxBU3tiNPyGeddYdrCAIi5XJ5DIB/8Ktnt/HsJMQFtGEU4cEPFB6a2X1spsSB2S4Onbr/AG4wXAx9kHMJPVW/V33fK1jjeBFTlOd3U4Gi5YFrz4CHOudE2Utk2M4vtzOnNx26lezUAJugqZV/TBRbE12m1Dr1iE62qCiZDw445vlRvX/OZLXBFLfL7+ADlf701L/nISueoPTXl2gR2DDxoQMTropVxYZjDHaWU/LnRJIiEuEDdy0yyJ+mNuIRe3XPYRUh2GQ=
 notifications:
   email:
     recipients:
-    - victorcuascut@gmail.com
-    on_success: change
+    - user@emailme.com
     on_failure: change
