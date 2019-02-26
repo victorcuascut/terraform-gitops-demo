@@ -1,6 +1,6 @@
 user_account_id             =   "399188165922"
 aws_region                  =   "us-east-1"
-environment                 =   "test"
+environment                 =   "dev"
 account_name                =   "development"
 business_unit               =   "acmecorp"
 
