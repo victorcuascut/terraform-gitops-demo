@@ -10,7 +10,7 @@ provider "aws" {
 }
 
 module "fargate-example" {
-    source  = "../."
+    source  = "git::https://github.com/victorcuascut/terraform-fargate-example.git?ref=master"
     vpc_name =   "${var.vpc_name}"
     private_subnet_name =   "${var.private_subnet_name}"
     public_subnet_name =   "${var.public_subnet_name}"
