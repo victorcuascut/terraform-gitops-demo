@@ -7,7 +7,7 @@ addons:
 install:
 - make init
 script:
-- make manifest/plan -e BUSINESS=acmecorp -e ACCOUNT=development-account -e PROJECT=all -e REGION=us-east-1
+- make manifest/apply -e BUSINESS=acmecorp -e ACCOUNT=development-account -e PROJECT=all -e REGION=us-east-1
 env:
   global:
   - secure: MjnumcBAVStYNci5NEmaH6PwwRIFET6fubjr730o9oB8HOxp2qwIwJAsGxGX83QSSFpXAjm6mhNXAK7PdnsoS57Z9pJ+8J3LTtE0uOE54E7M+1Sna7hbE8woyztUGO11bB6NDgsyN27/LNOOcIsUA6IjH8tNgEorKPPCCagUjWAp2gC8nxW8BTAqJEHjPRJS5vFWCpDHgHIL7srZSUEk20vpp0SHORQxkA/EdMCCPYqTzuWYmtvt6XQbbmRTKXwunjEAKufTFM8+D0Ds+SkzBid9CCA3rqTqLTz6zCFPTEKY/N+Zgdse/qyLEg/4YOj2TQ5qMn6VVCB/RdTKj90sRjB/KPIVH6mPqM9uuBM/wZzrRnEVFo8oK1KHaGr4Hl2F/qGPRsCVSguIKQr2h/HISxbw3sKDdl6C5xUV2LQl3mjc+RKtVoPyJZMvqgUtrE092knaqhYqSDPmz/oz16YTcwEBhA674FKP4aJt0BT5Lq2CHiSdiDUKg2OEw9hOMzeRR196z+u+cL6a6z4/o6ck+DF3UF2Br63f4hGINqmROF+k6CBIuBXyieKT0RgXLxLEMRKnOW4C2f0fHVnAE0lV1I/dfKbtziyHJr5yPhRknPrSGdxwdhbH75ixniBcDpy8gmV92zbXV2uX+IssuAfqzKtQbYNW2VF1Ll50CV+O+rU=
