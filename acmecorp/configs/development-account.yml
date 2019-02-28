@@ -1,0 +1,15 @@
+---
+business: acme-corp
+environment: development
+
+development-account:
+    us-east-1:
+        - global/config-baseline
+
+        - demo/demo-vpc
+        - demo/demo-fargate-example
+
+        - platform/platform-vpc
+        - platform/platform-route53-private-zone
+
+

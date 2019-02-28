@@ -1,9 +1,13 @@
-#  Local .terraform directories
-**/.terraform/*
+# Terraform files
+.terraform
+terraform.tfstate.d
+terraform.tfstate
+terraform.tfvars
+*.tfstate*
 
-# .tfstate files
-*.tfstate
-*.tfstate.*
+# Test Kitchen
+.kitchen
 
-# .tfvars files
-*.tfvars
+# Build Harness
+build-harness
+.build-harness
